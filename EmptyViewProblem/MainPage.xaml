@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EmptyViewProblem.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="StartAndExpand">
+            <Label Text="List" HorizontalOptions="Center" TextColor="Black"></Label>
+            <CollectionView ItemsSource="{Binding List}"  BackgroundColor="AliceBlue" VerticalOptions="StartAndExpand">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"></LinearItemsLayout>
+                </CollectionView.ItemsLayout>
+                <CollectionView.EmptyView>
+                    <Border StrokeShape="RoundRectangle 10" VerticalOptions="StartAndExpand" Padding="0" BackgroundColor="{StaticResource Gray400}">
+                        <VerticalStackLayout VerticalOptions="StartAndExpand" Padding="20" Spacing="20">
+                            <Label Text="No data" HorizontalOptions="Center" TextColor="Black"></Label>
+                        </VerticalStackLayout>
+                    </Border>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding Name}"></Label>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
